@@ -5,6 +5,7 @@
  */
 package com.electroescom.models.dao;
 
+import com.electroescom.models.pojos.modelos.Evento;
 import com.electroescom.models.pojos.modelos.Usuario;
 import java.util.Date;
 
@@ -16,6 +17,9 @@ public class Test {
     
     public static void main(String[] args){
         System.out.println("Corriendo");
+        EventoDAO uDAO=new EventoDAO();
+
+        /*
         Usuario u=new Usuario();
         u.setApellidoMaterno("Martinez");
         u.setApellidoPaterno("Vazquez");
@@ -28,7 +32,15 @@ public class Test {
         byte b=(byte)1;
         u.setTipo_usuario(b);
         UsuarioDAO uDAO=new UsuarioDAO();
-        uDAO.insertaUsuario(u);
+        uDAO.insertaUsuario(u);*/
+        Evento e=new Evento();
+        Date d=new Date();
+        e.setFecha(d);
+        e.setNombreUsuario("evazquez");
+        e.setObservaciones("test evento");
+        e.setTipo_evento((byte)1);
+        uDAO.insertar(e);
+        int r=1+2;
     }
     
 }

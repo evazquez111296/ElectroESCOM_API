@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.electroescom.models.pojos.modelos.Evento" table="Evento" >
+        <id name="id_evento" column="id_evento">
+            <generator class="increment"></generator>
+        </id>
+        <property name="nombreUsuario" column="nombreUsuario"/>
+        <property name="fecha" column="fecha"/>
+        <property name="tipo_evento" column="tipo_evento"/>
+        <property name="observaciones" column="observaciones"/>
+    </class>
+</hibernate-mapping>

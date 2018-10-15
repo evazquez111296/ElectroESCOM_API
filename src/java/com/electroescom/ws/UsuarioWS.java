@@ -1,5 +1,7 @@
 package com.electroescom.ws;
 
+import com.electroescom.models.dao.UsuarioDAO;
+import com.electroescom.models.pojos.modelos.Evento;
 import com.electroescom.models.pojos.modelos.Usuario;
 import java.util.Date;
 import javax.jws.WebService;
@@ -8,14 +10,20 @@ import javax.jws.WebParam;
 
 @WebService(serviceName = "UsuarioWS")
 public class UsuarioWS {
-
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    
+    @WebMethod(operationName="iniciarSesion")
+    public int iniciarSesion(
+            @WebParam(name="nombreUsuario") String nombreUsuario,
+            @WebParam(name="nombrePila") String nombrePila 
+    ){
+            Evento e=new Evento();
+            e.setFecha(new Date());
+            e.setNombreUsuario(nombreUsuario);
+            e.setObservaciones("Inicio de Session");
+            e.setTipo_evento((byte)1);
+        return 0;
     }
+
     
     @WebMethod(operationName="insertar")
     public int insertar(
@@ -32,6 +40,12 @@ public class UsuarioWS {
     )
     {
         Usuario u=new Usuario();
+        
+        /**
+         * Creamos una instancia de tipo Usuario,
+         * la cual se va a persistir en la base de datos.
+         */
+        
         u.setApellidoMaterno(apMaterno);
         u.setApellidoPaterno(apPaterno);
         u.setContrasenia(contrasenia);
@@ -41,7 +55,24 @@ public class UsuarioWS {
         u.setNombreUsuario(nombreUsuario);
         u.setTelefono(telefono);
         u.setTipo_usuario(tipoUsuario);
+        /**
+         * Asignamos los valores que se dan al 
+         * ws a la instancia creada.
+         */
+        UsuarioDAO udao=new UsuarioDAO();
+        /**
+         * Creamos una instancia de tipo UsuarioDAO
+         * la cual sera la encargada de hacer la 
+         * persistencia del usuario.7
+         */
         
-        return 1;
+        Evento e=new Evento();
+        e.setFecha(new Date());
+        e.setNombreUsuario(nombreUsuario);
+        e.setObservaciones("Inicio de Session");
+        e.setTipo_evento((byte)1);
+        return udao.insertaUsuario(u,e);
     }
+    
+        
 }
