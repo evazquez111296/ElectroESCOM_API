@@ -14,13 +14,14 @@ public class Usuario implements Serializable{
     private String correo;
     private Date FechaNac;
     private String telefono;
+    private Date Fecha_Ingreso;
 
     
     public Usuario(){
     
     }
 
-    public Usuario(String nombreUsuario, String contrasenia, byte tipo_usuario, String nombrePila, String apellidoPaterno, String apellidoMaterno, String correo, Date FechaNac, String telefono) {
+    public Usuario(String nombreUsuario, String contrasenia, byte tipo_usuario, String nombrePila, String apellidoPaterno, String apellidoMaterno, String correo, Date FechaNac, String telefono,Date Fecha_Ingreso) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.tipo_usuario = tipo_usuario;
@@ -30,8 +31,12 @@ public class Usuario implements Serializable{
         this.correo = correo;
         this.FechaNac = FechaNac;
         this.telefono = telefono;
+        this.Fecha_Ingreso=Fecha_Ingreso;
     }
     
+    public Date getFecha_Ingreso(){return this.Fecha_Ingreso;}
+    
+    public void setFecha_Ingreso(Date Fecha_Ingreso){this.Fecha_Ingreso=Fecha_Ingreso;}
     
     public String getNombreUsuario() {
         return nombreUsuario;

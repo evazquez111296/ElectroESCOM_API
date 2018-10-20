@@ -3,13 +3,25 @@ package com.electroescom.ws;
 import com.electroescom.models.dao.UsuarioDAO;
 import com.electroescom.models.pojos.modelos.Evento;
 import com.electroescom.models.pojos.modelos.Usuario;
+import com.google.gson.Gson;
 import java.util.Date;
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 
 @WebService(serviceName = "UsuarioWS")
 public class UsuarioWS {
+    
+    @WebMethod(operationName="consultarUsuarios")
+    public String consultarUsuarios(){
+        UsuarioDAO udao=new UsuarioDAO();
+        Gson g=new Gson();
+        List<Usuario> usuarios=udao.getUsuarios();
+        String response=g.toJson(usuarios);
+        return response;
+    }
+    
     
     @WebMethod(operationName="iniciarSesion")
     public int iniciarSesion(
