@@ -13,6 +13,7 @@ import javax.jws.WebParam;
 @WebService(serviceName = "UsuarioWS")
 public class UsuarioWS {
     
+    
     @WebMethod(operationName="consultarUsuarios")
     public String consultarUsuarios(){
         UsuarioDAO udao=new UsuarioDAO();
@@ -47,7 +48,8 @@ public class UsuarioWS {
             @WebParam(name="contrasenia") String contrasenia,
             @WebParam(name="tipoUsuario") byte tipoUsuario,
             @WebParam(name="fechaNac") Date fechaNac,
-            @WebParam(name="telefono") String telefono
+            @WebParam(name="telefono") String telefono,
+            @WebParam(name="fechaIngreso") Date fechaIngreso
 
     )
     {
@@ -67,6 +69,7 @@ public class UsuarioWS {
         u.setNombreUsuario(nombreUsuario);
         u.setTelefono(telefono);
         u.setTipo_usuario(tipoUsuario);
+        u.setFecha_Ingreso(fechaIngreso);
         /**
          * Asignamos los valores que se dan al 
          * ws a la instancia creada.

@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js"
+        data-dojo-config="async:true,parseOnLoad:false"></script>
+        <link rel="stylesheet" href="Dojo/dgrid/css/dgrid.css">
+
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body class="soria">
+        <div id="GridAlumnos"></div>
+        <script >
+            require([
+                "dojo/dom",
+                "dojo/request/xhr",
+                "dojo/domReady!"],
+            function(dom,xhr){
+                //var div=dom.byId("GridAlumnos");
+                //var grid=new AlumnosGrid().placeAt(div);
+                
+                xhr("http://localhost:8084/ElectroESCOM_API/GetAllUsersController",{
+                    handleAs: "json",
+                    method:'get'
+                }).then(function(data){document.write(data)},function (err){
+                    
+                });
+                
+
+
+            });
+        </script>
     </body>
 </html>

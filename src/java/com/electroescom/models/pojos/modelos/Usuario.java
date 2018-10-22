@@ -15,13 +15,18 @@ public class Usuario implements Serializable{
     private Date FechaNac;
     private String telefono;
     private Date Fecha_Ingreso;
-
+    private String urlFoto;
+    private char sexo;
     
     public Usuario(){
     
     }
 
-    public Usuario(String nombreUsuario, String contrasenia, byte tipo_usuario, String nombrePila, String apellidoPaterno, String apellidoMaterno, String correo, Date FechaNac, String telefono,Date Fecha_Ingreso) {
+    public Usuario(String nombreUsuario, String contrasenia,
+            byte tipo_usuario, String nombrePila, 
+            String apellidoPaterno, String apellidoMaterno, 
+            String correo, Date FechaNac, String telefono,
+            Date Fecha_Ingreso,String urlFoto,char sexo) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.tipo_usuario = tipo_usuario;
@@ -32,7 +37,17 @@ public class Usuario implements Serializable{
         this.FechaNac = FechaNac;
         this.telefono = telefono;
         this.Fecha_Ingreso=Fecha_Ingreso;
+        this.urlFoto=urlFoto;
+        this.sexo=sexo;
     }
+    
+    public char getSexo(){return this.sexo;}
+    
+    public void setSexo(char sexo){this.sexo=sexo;}
+    
+    public String getUrlFoto(){return this.urlFoto;}
+    
+    public void setUrlFoto(String urlFoto){this.urlFoto=urlFoto;}
     
     public Date getFecha_Ingreso(){return this.Fecha_Ingreso;}
     

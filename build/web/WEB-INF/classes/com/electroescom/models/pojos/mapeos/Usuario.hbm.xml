@@ -15,5 +15,7 @@
         <property name="FechaNac" column="fechaNac"/>
         <property name="telefono" column="telefono"/>
         <property name="Fecha_Ingreso" column="Fecha_Ingreso"/>
+        <property name="urlFoto" column="urlFoto"/>
+        <property name="sexo" column="sexo"/>
     </class>
 </hibernate-mapping>

@@ -8,9 +8,33 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>Saludo</servlet-name>
+        <servlet-class>com.electroescom.servlets.Saludo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetAllUsersController</servlet-name>
+        <servlet-class>com.electroescom.controllers.users.GetAllUsersController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginUserController</servlet-name>
+        <servlet-class>com.electroescom.controllers.users.LoginUserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioWS</servlet-name>
         <url-pattern>/UsuarioWS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Saludo</servlet-name>
+        <url-pattern>/Saludo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllUsersController</servlet-name>
+        <url-pattern>/GetAllUsersController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginUserController</servlet-name>
+        <url-pattern>/LoginUserController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
